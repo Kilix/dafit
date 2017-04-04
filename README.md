@@ -34,5 +34,5 @@ const result = resolveStructure({
     last_name: 'Cena',
     age: 39
 }) 
-// {id: 1, firstname: 'John', lastname: 'Cena', fullName: 'John CENA'} 
+// Promise<{id: 1, firstname: 'John', lastname: 'Cena', fullName: 'John CENA'}>
 ```
