@@ -1,0 +1,40 @@
+{
+	"name": "dafit",
+	"version": "1.0.0",
+	"description": "Transform data to fit your structures",
+	"main": "dist/index.js",
+	"repository": "git@github.com:alexandrebodin/dafit.git",
+	"author": "Alexandre BODIN <bodin.alex@gmail.com>",
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "3.19.0",
+		"eslint-config-airbnb": "14.1.0",
+		"eslint-plugin-import": "2.2.0",
+		"eslint-plugin-jsx-a11y": "4.0.0",
+		"eslint-plugin-react": "6.10.3",
+		"jest": "19.0.2",
+		"prettier": "0.22.0",
+		"prettier-eslint": "4.4.0"
+	},
+	"scripts": {
+		"build": "rm -rf dist/* && rollup -c",
+		"lint": "eslint \"src/**/*.js\"",
+		"format": "prettier --single-quote --trailing-comma es5 --color --write \"{__tests__,src}/**/*.js\"",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"prepublish": "npm run format && npm run lint && npm test"
+	},
+	"keywords": [
+		"data",
+		"transform",
+		"object",
+		"immutable",
+		"asynchronous",
+		"structure",
+		"mapping",
+		"evolve",
+		"modify",
+		"format"
+	]
+}
