@@ -7,7 +7,7 @@ Transform data to fit your structures
 [![npm](https://img.shields.io/npm/dm/dafit.svg?style=flat-square)](https://www.npmjs.com/package/dafit)
 [![license](https://img.shields.io/github/license/alexandrebodin/dafit.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-[![CircleCI](https://img.shields.io/circleci/project/alexandrebodin/dafit.svg?style=flat-square)](https://circleci.com/gh/alexandrebodin/dafit)
+[![CircleCI](https://img.shields.io/circleci/project/Kilix/dafit.svg?style=flat-square)](https://circleci.com/gh/Kilix/dafit)
 
 ## Installation
 
