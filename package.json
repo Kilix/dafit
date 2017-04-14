@@ -10,6 +10,7 @@
   "devDependencies": {
     "babel-jest": "19.0.0",
     "babel-preset-env": "1.3.2",
+    "codecov": "2.1.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "2.2.0",
@@ -24,9 +25,13 @@
     "build": "rm -rf dist/* && rollup -c",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --single-quote --trailing-comma es5 --color --write \"{__tests__,src}/**/*.js\"",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "jest && codecov",
     "prepublish": "npm run lint && npm test && npm run build"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverageFrom": [ "src/**/*.js" ],
+    "collectCoverage": true
   },
   "keywords": [
     "data",

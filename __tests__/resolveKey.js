@@ -11,7 +11,7 @@ describe('resolveKey', () => {
     const input = {};
     const resolverObject = {
       key: 'key',
-      fn: () => {},
+      fn: () => {}
     };
     const resolveFn = resolveKey(input);
     const result = resolveFn(resolverObject);
@@ -24,28 +24,27 @@ describe('resolveKey', () => {
     const fn = jest.fn();
     const resolverObject = {
       key: 'key',
-      fn,
+      fn
     };
     const resolveFn = resolveKey(input);
     resolveFn(resolverObject);
 
     expect(fn).toHaveBeenCalled();
-    expect(fn).toHaveBeenCalledWith(input);
+    expect(fn).toHaveBeenCalledWith(input, {});
   });
 
-  it('Return fn result and key as a pair', done => {
+  it('Return fn result and key as a pair', () => {
     const input = {};
     const testKey = 'testKey';
     const result = 'testResult';
     const resolverObject = {
       key: testKey,
-      fn: () => result,
+      fn: () => result
     };
     const resolveFn = resolveKey(input);
 
-    resolveFn(resolverObject).then(res => {
+    return resolveFn(resolverObject).then((res) => {
       expect(res).toEqual({ key: testKey, value: result });
-      done();
     });
   });
 });
