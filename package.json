@@ -24,9 +24,12 @@
     "build": "rm -rf dist/* && rollup -c",
     "lint": "eslint \"src/**/*.js\"",
     "format": "prettier --single-quote --trailing-comma es5 --color --write \"{__tests__,src}/**/*.js\"",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "jest && codecov",
     "prepublish": "npm run lint && npm test && npm run build"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "keywords": [
     "data",
