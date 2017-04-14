@@ -8,6 +8,7 @@ Transform data to fit your structures.
 [![license](https://img.shields.io/github/license/alexandrebodin/dafit.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 [![CircleCI](https://img.shields.io/circleci/project/Kilix/dafit.svg?style=flat-square)](https://circleci.com/gh/Kilix/dafit)
+[![Codecov](https://img.shields.io/codecov/c/github/Kilix/dafit.svg?style=flat-square)](https://codecov.io/github/Kilix/dafit)
 
 ## Installation
 
