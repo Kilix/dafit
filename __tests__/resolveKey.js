@@ -47,4 +47,19 @@ describe('resolveKey', () => {
       expect(res).toEqual({ key: testKey, value: result });
     });
   });
+
+  it('Passes context to the resolving function', () => {
+    const input = {};
+    const fn = jest.fn();
+    const resolverObject = {
+      key: 'key',
+      fn
+    };
+    const context = { contextKey: true };
+    const resolveFn = resolveKey(input, context);
+    resolveFn(resolverObject);
+
+    expect(fn).toHaveBeenCalled();
+    expect(fn).toHaveBeenCalledWith(input, context);
+  });
 });
