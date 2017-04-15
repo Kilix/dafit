@@ -1,5 +1,5 @@
 export default {
-  entry: 'src/index.js',
+  entry: 'src/Resolver.js',
   format: 'cjs',
-  dest: 'dist/index.js',
+  dest: 'dist/index.js'
 };
