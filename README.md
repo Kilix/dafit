@@ -44,7 +44,7 @@ const user = {
     age: 39
 }
 
-const result = resolveUser(user, { withPermission: true });
+const result = resolveUser(user, { withPermissions: true });
 // Promise<{
 //    id: 1, 
 //    firstname: 'John', 
