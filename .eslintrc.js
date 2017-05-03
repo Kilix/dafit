@@ -1,17 +1,25 @@
 module.exports = {
-  extends: "airbnb",
-  installedESLint: true,
-  plugins: ["import"],
-  "env": {
-    "jest": true
+  root: true,
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
   },
-  "rules": {
-    "comma-dangle": ["error", {
-        "arrays": "never",
-        "objects": "never",
-        "imports": "never",
-        "exports": "never",
-        "functions": "ignore",
-    }]
-  }
+  extends: 'eslint:recommended',
+  env: {
+    jest: true,
+    es6: true,
+  },
+  rules: {
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'only-multiline',
+        objects: 'only-multiline',
+        imports: 'only-multiline',
+        exports: 'only-multiline',
+        functions: 'ignore',
+      },
+    ],
+    'arrow-parens': ['error', 'as-needed'],
+  },
 };
