@@ -1,9 +1,13 @@
 module.exports = {
-  extends: 'airbnb',
-  installedESLint: true,
-  plugins: ['import'],
+  root: true,
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+  },
+  extends: 'eslint:recommended',
   env: {
     jest: true,
+    es6: true,
   },
   rules: {
     'comma-dangle': [

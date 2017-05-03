@@ -39,8 +39,6 @@ describe('resolveObject', () => {
 
     const result = resolveObject(resolvers, values, context, { isSync: true });
     expect(result).toBeInstanceOf(Object);
-    expect(result).toEqual({
-      id: 10,
-    });
+    expect(result).toEqual({ id: 10 });
   });
 });

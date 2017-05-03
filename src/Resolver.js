@@ -30,5 +30,9 @@ const Resolver = function Resolver(mapping) {
   return Resolve;
 };
 
-export { SyncResolver };
-export default Resolver;
+export default {
+  Resolver,
+  SyncResolver,
+};
+
+export { Resolver, SyncResolver };

@@ -21,7 +21,11 @@ $ npm install --save dafit
 Dafit enables you to create a dynamic schema you want your data to fit.
 
 ```javascript
-const Resolver = require('dafit')
+import { Resolver } from 'dafit';
+// import dafit from 'dafit';
+// then user dafit.Resolver
+// or
+// const { Resolver } = require('dafit');
 
 const defaultValue = null;
 
@@ -58,7 +62,8 @@ const result = resolveUser(user, { withPermissions: true });
 You can also use a synchronuous resolver for some use case to avoid using Promises
 
 ```javascript
-const { SyncResolver } = require('dafit')
+import { SyncResolver } from 'dafit';
+// const { SyncResolver } = require('dafit');
 
 const defaultValue = null;
 
@@ -67,7 +72,7 @@ const resolveUser = new SyncResolver({
     firstname: user => user.first_name, // will set firstname as the return value of the function
     lastname: user => user.last_name,
     fullName: user => `${user.first_name} ${user.last_name.toUpperCase()}`,
-    aPromise: () => new Promise((resolve) => resolve('Hello World!')),
+    aPromise: () => new Promise((resolve) => resolve('Hello World!')), // the promise will not be resolved before return
 })
 
 const user = {
@@ -86,3 +91,9 @@ const result = resolveUser(user, { withPermission: true });
 //    aPromise: Promise<'Hello World!'>
 // }
 ```
+
+
+
+## Change Log 
+
+- Changes are reported on the [Github release page](https://github.com/Kilix/dafit/releases)

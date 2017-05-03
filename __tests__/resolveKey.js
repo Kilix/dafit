@@ -62,4 +62,15 @@ describe('resolveKey', () => {
     expect(fn).toHaveBeenCalled();
     expect(fn).toHaveBeenCalledWith(input, context);
   });
+
+  it('Handles sync resolving', () => {
+    const resolverObject = {
+      key: 'key',
+      fn: () => 10,
+    };
+    const resolveFn = resolveKey({}, {}, { isSync: true });
+    const result = resolveFn(resolverObject);
+
+    expect(result).toEqual({ key: 'key', value: 10 });
+  });
 });

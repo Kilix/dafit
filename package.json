@@ -12,21 +12,22 @@
     "babel-preset-env": "1.3.2",
     "codecov": "2.1.0",
     "eslint": "3.19.0",
-    "eslint-config-airbnb": "14.1.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.10.3",
     "jest": "19.0.2",
+    "npm-run-all": "4.0.2",
     "prettier": "0.22.0",
-    "prettier-eslint": "4.4.0",
+    "rimraf": "2.6.1",
     "rollup": "0.41.6"
   },
   "scripts": {
-    "build": "rm -rf dist/* && rollup -c",
-    "lint": "eslint \"src/**/*.js\"",
+    "build": "run-s clean:* build:*",
+    "build:dist": "rollup -c",
+    "clean:dist": "rimraf dist",
+    "lint": "eslint \"{__tests__,src}/**/*.js\"",
     "format": "prettier --single-quote --trailing-comma es5 --color --write \"{__tests__,src}/**/*.js\"",
-    "test": "jest && codecov",
-    "prepublish": "npm run lint && npm test && npm run build"
+    "testonly": "jest && codecov",
+    "test": "run-s format lint testonly",
+    "prepublishOnly": "npm run lint && npm test && npm run build",
+    "link": "npm run build && npm link"
   },
   "jest": {
     "coverageDirectory": "./coverage/",

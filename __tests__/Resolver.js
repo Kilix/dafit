@@ -1,4 +1,4 @@
-import Resolver, { SyncResolver } from '../src/Resolver';
+import { Resolver, SyncResolver } from '../src/Resolver';
 
 describe('Resolver.js', () => {
   describe('Resolver', () => {

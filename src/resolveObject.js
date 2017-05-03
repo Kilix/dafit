@@ -10,7 +10,7 @@ export default function resolverObject(
 ) {
   return isSync
     ? resolvers
-        .map(resolveKey(values, context))
+        .map(resolveKey(values, context, { isSync }))
         .reduce((o, { key, value }) => assign(o, { [key]: value }), {})
     : Promise.all(
         resolvers.map(resolveKey(values, context))
