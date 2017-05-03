@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Transform data to fit your structures",
   "main": "dist/index.js",
-  "repository": "git@github.com:alexandrebodin/dafit.git",
+  "repository": "git@github.com:Kilix/dafit.git",
   "author": "Alexandre BODIN <bodin.alex@gmail.com>",
   "license": "MIT",
   "dependencies": {},
@@ -26,7 +26,7 @@
     "format": "prettier --single-quote --trailing-comma es5 --color --write \"{__tests__,src}/**/*.js\"",
     "testonly": "jest && codecov",
     "test": "run-s format lint testonly",
-    "prepublishOnly": "npm run lint && npm test && npm run build",
+    "prepublishOnly": "run-s test build",
     "link": "npm run build && npm link"
   },
   "jest": {
