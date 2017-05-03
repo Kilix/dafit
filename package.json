@@ -26,7 +26,7 @@
     "format": "prettier --single-quote --trailing-comma es5 --color --write \"{__tests__,src}/**/*.js\"",
     "testonly": "jest && codecov",
     "test": "run-s format lint testonly",
-    "prepublishOnly": "run-s test build",
+    "prepublish": "run-s build",
     "link": "npm run build && npm link"
   },
   "jest": {
