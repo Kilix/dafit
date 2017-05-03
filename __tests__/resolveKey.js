@@ -11,7 +11,7 @@ describe('resolveKey', () => {
     const input = {};
     const resolverObject = {
       key: 'key',
-      fn: () => {}
+      fn: () => {},
     };
     const resolveFn = resolveKey(input);
     const result = resolveFn(resolverObject);
@@ -24,7 +24,7 @@ describe('resolveKey', () => {
     const fn = jest.fn();
     const resolverObject = {
       key: 'key',
-      fn
+      fn,
     };
     const resolveFn = resolveKey(input);
     resolveFn(resolverObject);
@@ -39,11 +39,11 @@ describe('resolveKey', () => {
     const result = 'testResult';
     const resolverObject = {
       key: testKey,
-      fn: () => result
+      fn: () => result,
     };
     const resolveFn = resolveKey(input);
 
-    return resolveFn(resolverObject).then((res) => {
+    return resolveFn(resolverObject).then(res => {
       expect(res).toEqual({ key: testKey, value: result });
     });
   });
@@ -53,7 +53,7 @@ describe('resolveKey', () => {
     const fn = jest.fn();
     const resolverObject = {
       key: 'key',
-      fn
+      fn,
     };
     const context = { contextKey: true };
     const resolveFn = resolveKey(input, context);

@@ -26,9 +26,21 @@ describe('resolveObject', () => {
     const values = {};
     const context = {};
 
-    return resolveObject(resolvers, values, context)
-      .then((result) => {
-        expect(result).not.toBe(values);
-      });
+    return resolveObject(resolvers, values, context).then(result => {
+      expect(result).not.toBe(values);
+    });
+  });
+
+  it('Resolves syncrhonuously', () => {
+    const fn1 = jest.fn(() => 10);
+    const resolvers = [{ key: 'id', fn: fn1 }];
+    const values = {};
+    const context = {};
+
+    const result = resolveObject(resolvers, values, context, { isSync: true });
+    expect(result).toBeInstanceOf(Object);
+    expect(result).toEqual({
+      id: 10,
+    });
   });
 });
