@@ -97,3 +97,15 @@ const result = resolveUser(user, { withPermission: true });
 ## Change Log 
 
 - Changes are reported on the [Github release page](https://github.com/Kilix/dafit/releases)
+
+## Contributing
+
+Read [How to contribute](https://github.com/Kilix/dafit/blob/master/CONTRIBUTING.md) to help us improve this library.
+
+## Ideas for contribution
+
+- [] Adding before / after hooks
+- [] Adding support for default context
+- [] Handling nested structures
+- [] Adding support for Rx and such
+- [] Adding plugins feature to add more flexibility *(e.g immutable-plugin to pass a withMutation object to the resolvers for improved performance)*
