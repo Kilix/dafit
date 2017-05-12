@@ -8,24 +8,52 @@ const mappingInvariant = mapping =>
     'You must provide a mapping object'
   );
 
-const SyncResolver = function SyncResolver(mapping) {
+const defaultOpts = {
+  hooks: {
+    before: null,
+    after: null,
+  },
+};
+
+const SyncResolver = function SyncResolver(mapping, options) {
   mappingInvariant(mapping);
 
   const resolvers = buildResolvers(mapping);
+  const opts = Object.assign({}, defaultOpts, options);
 
   function Resolve(values, context) {
-    return resolveObject(resolvers, values, context, { isSync: true });
+    const computedValues = opts.hooks.before
+      ? opts.hooks.before(values, context)
+      : values;
+
+    const result = resolveObject(resolvers, computedValues, context, {
+      isSync: true,
+    });
+
+    return opts.hooks.after
+      ? opts.hooks.after(computedValues, context, result)
+      : result;
   }
   return Resolve;
 };
 
-const Resolver = function Resolver(mapping) {
+const Resolver = function Resolver(mapping, options) {
   mappingInvariant(mapping);
 
   const resolvers = buildResolvers(mapping);
+  const opts = Object.assign({}, defaultOpts, options);
 
   function Resolve(values, context) {
-    return resolveObject(resolvers, values, context);
+    const computedValues = opts.hooks.before
+      ? opts.hooks.before(values, context)
+      : values;
+
+    const result = resolveObject(resolvers, computedValues, context);
+    return result.then(res => {
+      return opts.hooks.after
+        ? opts.hooks.after(computedValues, context, res)
+        : res;
+    });
   }
   return Resolve;
 };
